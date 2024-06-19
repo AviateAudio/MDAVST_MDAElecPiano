@@ -1,0 +1,232 @@
+{
+  "efxFileVersion": "1.5.0",
+  "company": "MDA VST",
+  "effectName": "MDA Electric Piano",
+  "effectVersion": "",
+  "coreVersion": "1.5.0",
+  "effectShortName": "EPIANO",
+  "effectCategory": "Unspecified",
+  "effectDescription": "A port of the famous MDA ePiano VST",
+  "numInputs": 1,
+  "numOutputs": 2,
+  "numControls": 14,
+  "effectFilename": "MDAVST_MDAElecPiano.efx",
+  "libraryName": "MDAVST_MDAElecPiano",
+  "cppClass": "MDAVST_MDAElecPiano::MDAElecPiano",
+  "cppInstBase": "_MDAVST_MDAElecPiano",
+  "constructorParams": "",
+  "isSingleton": false,
+  "processMidi": true,
+  "audioStreamType": 0,
+  "type": 1,
+  "controls": [
+    {
+      "name": "Bypass",
+      "shortName": "BYP",
+      "description": "Bypasses the effect when enabled",
+      "config": [
+        0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "userData": 1
+    },
+    {
+      "name": "Volume",
+      "shortName": "VOL",
+      "description": "Sets the effect output volume from -40dB to +10dB",
+      "config": [
+        3,
+        0.0,
+        10.0,
+        8.0,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Program",
+      "shortName": "PROG",
+      "description": "Sets to one of 8 piano preset programs.",
+      "config": [
+        2,
+        0.0,
+        7.0,
+        0.0,
+        1.0
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Envelope Decay",
+      "shortName": "DECAY",
+      "description": "The time for notes to decay after the initial strike.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Envelope Release",
+      "shortName": "REL",
+      "description": "The time for notes to decay after the key is released.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Width",
+      "shortName": "WIDTH",
+      "description": "Width of the stereo effect (which makes low notes sound towards the left, high notes towards the right).",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Velocity Sensitivity",
+      "shortName": "<short>",
+      "description": "Sets piano sensitivity to the note velocity (attack strength).",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.25,
+        0.05000000074505806
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Treble",
+      "shortName": "TREB",
+      "description": "Controls the treble respond of the piano.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Polyphony",
+      "shortName": "POLY",
+      "description": "Sets the max number of polyphonic voices.",
+      "config": [
+        2,
+        1.0,
+        16.0,
+        16.0,
+        1.0
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Tune",
+      "shortName": "TUNE",
+      "description": "<description>",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Detune",
+      "shortName": "DET",
+      "description": "<description>",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.1459999978542328,
+        0.05000000074505806
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Overdrive",
+      "shortName": "ODRIVE",
+      "description": "Introduce a bit of overdriven grit into the sound.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.0,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Pan Tremolo",
+      "shortName": "TREM",
+      "description": "Control the amount of the pan tremolo modulation.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Pan LFO",
+      "shortName": "LFO",
+      "description": "Controls the rate of the pan tremolo.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.6499999761581421,
+        0.05000000074505806
+      ],
+      "userData": 0
+    }
+  ],
+  "projectFileVersion": "1.0.0",
+  "companyLogo": "gfx/company.png",
+  "pedalIcon": "gfx/pedal.png",
+  "publicHeaderFiles": [
+    "inc/MDAElecPiano.h"
+  ],
+  "privateSourceFiles": [
+    "src/MDAElecPianoBase.cpp",
+    "src/MDAElecPiano.cpp",
+    "src/mdaEPiano.cpp",
+    "src/mdaEPiano.h",
+    "src/mdaEPianoData.h",
+    "src/mdaEPianoDataXfade.h",
+    "src/utility"
+  ],
+  "modules": null,
+  "settings": {
+    "showModules": false,
+    "isSingleton": false,
+    "processMidi": true,
+    "cppDefines": "",
+    "noWarnings": "",
+    "enableFastMath": true,
+    "enableO3": true,
+    "audioStreamType": 0
+  }
+}
