@@ -23,7 +23,7 @@
 #define __mdaEPiano__
 
 #include <Audio.h>
-#include <Arduino.h>
+//#include <Arduino.h>
 #include <string.h>
 //#include "synth_mda_epiano.h"
 

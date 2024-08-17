@@ -29,25 +29,27 @@ using AudioDataType = int16_t;
 
 class MDAElecPiano : public AudioStream, public Aviate::AudioEffectWrapper {
 public:
-    static constexpr unsigned NUM_INPUTS  = 1;
+    static constexpr unsigned NUM_INPUTS  = 0;
     static constexpr unsigned NUM_OUTPUTS = 2;
 
     // List of effect control names
     enum {
         Bypass_e = 0,
         Volume_e = 1,
-        Program_e = 2,
-        EnvelopeDecay_e = 3,
-        EnvelopeRelease_e = 4,
-        Width_e = 5,
-        VelocitySensitivity_e = 6,
+        Mode_e = 2,
+        Program_e = 3,
+        EnvelopeDecay_e = 4,
+        EnvelopeRelease_e = 5,
+        Hardness_e = 6,
         Treble_e = 7,
-        Polyphony_e = 8,
-        Tune_e = 9,
-        Detune_e = 10,
-        Overdrive_e = 11,
-        PanTremolo_e = 12,
-        PanLFO_e = 13,
+        PanTremolo_e = 8,
+        PanLFO_e = 9,
+        VelocitySensitivity_e = 10,
+        Width_e = 11,
+        Polyphony_e = 12,
+        Tune_e = 13,
+        Detune_e = 14,
+        Overdrive_e = 15,
         NUM_CONTROLS
     };
 
@@ -72,44 +74,51 @@ public:
 
     // control value set functions, must take floats between 0.0f and 1.0f - do not change these declarations
     void volume(float value) override;
+    void mode(float value);
     void program(float value);
     void envelopedecay(float value);
     void enveloperelease(float value);
-    void width(float value);
-    void velocitysensitivity(float value);
+    void hardness(float value);
     void treble(float value);
+    void pantremolo(float value);
+    void panlfo(float value);
+    void velocitysensitivity(float value);
+    void width(float value);
     void polyphony(float value);
     void tune(float value);
     void detune(float value);
     void overdrive(float value);
-    void pantremolo(float value);
-    void panlfo(float value);
 
     //!s - START_USER_PUBLIC_MEMBERS - put your public members below this line before the matching END
     //!e - END_USER_PUBLIC_MEMBERS
 
 private:
-    audio_block_t *m_inputQueueArray[1]; // required by AudioStream base class, array size is num inputs
+    AudioBlock *m_inputQueueArray[NUM_INPUTS]; // pass an array of zero size to the base class for 0 inputs
     int m_midiConfig[NUM_CONTROLS][2]; // stores the midi parameter mapping
 
     // m_bypass and m_volume are already provided by the base class AudioEffectWrapper or AudioEffectFloat
+    float m_mode = 0.0f;
     float m_program = 0.0f;
     float m_envelopedecay = 0.0f;
     float m_enveloperelease = 0.0f;
-    float m_width = 0.0f;
-    float m_velocitysensitivity = 0.0f;
+    float m_hardness = 0.0f;
     float m_treble = 0.0f;
+    float m_pantremolo = 0.0f;
+    float m_panlfo = 0.0f;
+    float m_velocitysensitivity = 0.0f;
+    float m_width = 0.0f;
     float m_polyphony = 0.0f;
     float m_tune = 0.0f;
     float m_detune = 0.0f;
     float m_overdrive = 0.0f;
-    float m_pantremolo = 0.0f;
-    float m_panlfo = 0.0f;
 
-    audio_block_t* m_basicInputCheck(audio_block_t* inputAudioBlock, unsigned outputChannel);
+    bool m_enableAndBypassCheck(unsigned numOutputs);  // returns false if disabled or bypassed
 
     //!s - START_USER_PRIVATE_MEMBERS - put your private members below this line before the matching END
+    static constexpr unsigned MAX_VOICES = 16;
     mdaEPiano* m_piano = nullptr;
+    bool       m_programMode = true;
+    unsigned   m_progSel = 0;
 
     void m_init();
     bool m_isInit = false;

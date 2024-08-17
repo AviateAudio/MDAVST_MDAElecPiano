@@ -1,15 +1,15 @@
 {
-  "efxFileVersion": "1.5.0",
+  "efxFileVersion": "1.6.0",
   "company": "MDA VST",
   "effectName": "MDA Electric Piano",
-  "effectVersion": "",
-  "coreVersion": "1.5.0",
+  "effectVersion": "0.0.1",
+  "coreVersion": "1.6.0",
   "effectShortName": "EPIANO",
-  "effectCategory": "Unspecified",
+  "effectCategory": "Synth",
   "effectDescription": "A port of the famous MDA ePiano VST",
-  "numInputs": 1,
+  "numInputs": 0,
   "numOutputs": 2,
-  "numControls": 14,
+  "numControls": 16,
   "effectFilename": "MDAVST_MDAElecPiano.efx",
   "libraryName": "MDAVST_MDAElecPiano",
   "cppClass": "MDAVST_MDAElecPiano::MDAElecPiano",
@@ -18,7 +18,10 @@
   "isSingleton": false,
   "processMidi": true,
   "audioStreamType": 0,
-  "type": 1,
+  "cpuUsage": "1",
+  "ram0Usage": "1",
+  "ram1Usage": "1",
+  "writableBuffers": 2,
   "controls": [
     {
       "name": "Bypass",
@@ -31,6 +34,15 @@
         0.0,
         1.0
       ],
+      "iconOn": "gfx/toggleDown.png",
+      "iconOnHeight": 128,
+      "iconOff": "gfx/toggleUp.png",
+      "iconOffHeight": 128,
+      "position": [
+        1264,
+        300
+      ],
+      "scalingRatio": 2.099999904632568,
       "userData": 1
     },
     {
@@ -44,6 +56,36 @@
         8.0,
         0.1000000014901161
       ],
+      "iconPot": "gfx/VintageKnob.png",
+      "iconPotHeight": 196,
+      "position": [
+        397,
+        280
+      ],
+      "scalingRatio": 1.299999952316284,
+      "supressValueLabel": 1,
+      "userData": 0
+    },
+    {
+      "name": "Mode",
+      "shortName": "MODE",
+      "description": "Selects between the pre-made programs and manual synth control.",
+      "config": [
+        0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "iconOn": "gfx/toggleUp.png",
+      "iconOnHeight": 128,
+      "iconOff": "gfx/toggleDown.png",
+      "iconOffHeight": 128,
+      "position": [
+        996,
+        300
+      ],
+      "scalingRatio": 2.099999904632568,
       "userData": 0
     },
     {
@@ -53,10 +95,25 @@
       "config": [
         2,
         0.0,
-        7.0,
+        4.0,
         0.0,
         1.0
       ],
+      "iconEncoder": "gfx/VintageKnob5.png",
+      "iconEncoderHeight": 196,
+      "enums": [
+        "Default",
+        "Bright",
+        "Mellow",
+        "Autopan",
+        "Tremolo"
+      ],
+      "position": [
+        684,
+        280
+      ],
+      "scalingRatio": 1.299999952316284,
+      "supressValueLabel": 1,
       "userData": 0
     },
     {
@@ -86,15 +143,54 @@
       "userData": 0
     },
     {
-      "name": "Width",
-      "shortName": "WIDTH",
-      "description": "Width of the stereo effect (which makes low notes sound towards the left, high notes towards the right).",
+      "name": "Hardness",
+      "shortName": "HARD",
+      "description": "Controls the hardness of the synthesis.",
       "config": [
         3,
         0.0,
         1.0,
         0.5,
         0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Treble",
+      "shortName": "TREB",
+      "description": "Controls the treble respond of the piano.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Pan Tremolo",
+      "shortName": "TREM",
+      "description": "Control the amount of the pan tremolo modulation.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.5,
+        0.1000000014901161
+      ],
+      "userData": 0
+    },
+    {
+      "name": "Pan LFO",
+      "shortName": "LFO",
+      "description": "Controls the rate of the pan tremolo.",
+      "config": [
+        3,
+        0.0,
+        1.0,
+        0.6499999761581421,
+        0.05000000074505806
       ],
       "userData": 0
     },
@@ -112,9 +208,9 @@
       "userData": 0
     },
     {
-      "name": "Treble",
-      "shortName": "TREB",
-      "description": "Controls the treble respond of the piano.",
+      "name": "Width",
+      "shortName": "WIDTH",
+      "description": "Width of the stereo effect (which makes low notes sound towards the left, high notes towards the right).",
       "config": [
         3,
         0.0,
@@ -175,37 +271,12 @@
         0.1000000014901161
       ],
       "userData": 0
-    },
-    {
-      "name": "Pan Tremolo",
-      "shortName": "TREM",
-      "description": "Control the amount of the pan tremolo modulation.",
-      "config": [
-        3,
-        0.0,
-        1.0,
-        0.5,
-        0.1000000014901161
-      ],
-      "userData": 0
-    },
-    {
-      "name": "Pan LFO",
-      "shortName": "LFO",
-      "description": "Controls the rate of the pan tremolo.",
-      "config": [
-        3,
-        0.0,
-        1.0,
-        0.6499999761581421,
-        0.05000000074505806
-      ],
-      "userData": 0
     }
   ],
   "projectFileVersion": "1.0.0",
-  "companyLogo": "gfx/company.png",
-  "pedalIcon": "gfx/pedal.png",
+  "companyLogo": "gfx/MDA_Logo.png",
+  "pedalIcon": "gfx/ePianoBlackIcon.png",
+  "basePedal": "gfx/ePianoBlack.png",
   "publicHeaderFiles": [
     "inc/MDAElecPiano.h"
   ],

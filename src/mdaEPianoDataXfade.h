@@ -25,7 +25,8 @@
 #include <cstdint>
 
 #ifdef USE_XFADE_DATA
-#include <Arduino.h>
+#include "Audio.h"  // for PROGMEM
+//#include <Arduino.h>
 
 constexpr int16_t epianoDataXfade[] PROGMEM = {
   -7, -23, -28, -16, -30, -17, -28, -16, -31, -15, -34, -12, -35, -6, -42, 4, -58, 44, -227, -1690,

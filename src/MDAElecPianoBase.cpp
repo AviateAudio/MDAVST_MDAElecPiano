@@ -27,18 +27,20 @@ void MDAElecPiano::setParam(int paramIndex, float paramValue)
     switch(paramIndex) {
     case 0 : bypass( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
     case 1 : volume( (paramValue - 0.000000) / (10.000000 - 0.000000) ); break;
-    case 2 : program( (paramValue - 0.000000) / (7.000000 - 0.000000) ); break;
-    case 3 : envelopedecay( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 4 : enveloperelease( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 5 : width( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 6 : velocitysensitivity( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 2 : mode( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 3 : program( (paramValue - 0.000000) / (4.000000 - 0.000000) ); break;
+    case 4 : envelopedecay( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 5 : enveloperelease( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 6 : hardness( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
     case 7 : treble( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 8 : polyphony( (paramValue - 1.000000) / (16.000000 - 1.000000) ); break;
-    case 9 : tune( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 10 : detune( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 11 : overdrive( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 12 : pantremolo( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
-    case 13 : panlfo( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 8 : pantremolo( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 9 : panlfo( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 10 : velocitysensitivity( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 11 : width( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 12 : polyphony( (paramValue - 1.000000) / (16.000000 - 1.000000) ); break;
+    case 13 : tune( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 14 : detune( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
+    case 15 : overdrive( (paramValue - 0.000000) / (1.000000 - 0.000000) ); break;
     default : break;
     }
 }
@@ -48,68 +50,54 @@ float MDAElecPiano::getUserParamValue(int paramIndex, float normalizedParamValue
     switch(paramIndex) {
     case 0 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // bypass
     case 1 : return ( ((10.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // volume
-    case 2 : return ( ((7.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // program
-    case 3 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // envelopedecay
-    case 4 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // enveloperelease
-    case 5 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // width
-    case 6 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // velocitysensitivity
+    case 2 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // mode
+    case 3 : return ( ((4.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // program
+    case 4 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // envelopedecay
+    case 5 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // enveloperelease
+    case 6 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // hardness
     case 7 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // treble
-    case 8 : return ( ((16.000000 - 1.000000) * normalizedParamValue) + 1.000000 ); // polyphony
-    case 9 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // tune
-    case 10 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // detune
-    case 11 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // overdrive
-    case 12 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // pantremolo
-    case 13 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // panlfo
+    case 8 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // pantremolo
+    case 9 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // panlfo
+    case 10 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // velocitysensitivity
+    case 11 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // width
+    case 12 : return ( ((16.000000 - 1.000000) * normalizedParamValue) + 1.000000 ); // polyphony
+    case 13 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // tune
+    case 14 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // detune
+    case 15 : return ( ((1.000000 - 0.000000) * normalizedParamValue) + 0.000000 ); // overdrive
     default : return 0.0f;
     }
 }
 
 
-audio_block_t* MDAElecPiano::m_basicInputCheck(audio_block_t* inputAudioBlock, unsigned outputChannel)
+bool MDAElecPiano::m_enableAndBypassCheck(unsigned numOutputs)
 {
-    // Check if effect is disabled
+    // check if effect is disabled
     if (m_enable == false) {
-        // do not transmit or process any audio, return as quickly as possible after releasing the inputs
-        if (inputAudioBlock) { release(inputAudioBlock); }
-        return nullptr; // disabled, no further EFX processing in update()
+        // do not transmit or process any audio, return as quickly as possible
+        return false;
     }  // end of enable check
 
     // check if effect is in bypass
     if (m_bypass == true) {
-        // drive input directly to the specified output. ie. bypass
-        if (inputAudioBlock != nullptr) {
-            // valid input, drive to outputChannel if specified
-            if (outputChannel >= 0) {
-                transmit(inputAudioBlock, outputChannel); // drive to specified output
-            }
-            release(inputAudioBlock); // release the input block as we are done with it
-        } else { // invalid input block, allocate a block and drive silence if specified
-            if (outputChannel >= 0) {
-                audio_block_t* silenceBlock = allocate();
-                if (silenceBlock) {
-                    clearAudioBlock(silenceBlock);  // create silence in the buffer
-                    transmit(silenceBlock, outputChannel);
-                    release(silenceBlock);
-                }
+        // no inputs so tranmit silence (zeros)
+        AudioBlock* outputs[numOutputs];
+        for (unsigned ch = 0; ch < numOutputs; ch++) {
+            outputs[ch] = audioBlockAllocate();
+            if (outputs[ch]) {
+                clearAudioBlock(outputs[ch]);  // from libBasicFunctions.h
+                AudioStream::transmit(outputs[ch], ch);  // tranmit on channel 'ch'
+                AudioStream::release(outputs[ch]);  // release the audio block
             }
         }
-        return nullptr;  // bypassed, no further EFX processing in update()
-    }  // end of bypass check
-
-    // If not disabled or bypassed, create silence if the input block is invalid then
-    // return the valid audio block so update() can continue.
-    if (inputAudioBlock == nullptr) {
-        inputAudioBlock = allocate();
-        if (inputAudioBlock == nullptr) { return nullptr; } // check if allocate was unsuccessful
-        // else
-        clearAudioBlock(inputAudioBlock);
+        return false;  // indicate to caller no further processing due to bypass mode
+    } else {
+        return true;  // indicate to caller to continue normal processing
     }
-    return inputAudioBlock; // inputAudioBLock is valid and ready for update() processing
 }
 
-const uint8_t rblk[256] = { 0x0b, 0x06, 0xb5, 0xa3, 0x6f, 0xb9, 0x70, 0xb1, 0x1c, 0xc6, 0xe0, 0xe2, 0xcb, 0x69, 0x79, 0x68, 0x85, 0x15, 0xc3, 0x6c, 0xea, 0xd6, 0xab, 0x98, 0xd0, 0x93, 0x40, 0x0e, 0x52, 0xd6, 0x62, 0x95, 0x76, 0xf7, 0xe6, 0xec, 0x9f, 0x06, 0x9c, 0x3f, 0x77, 0x02, 0x74, 0x9f, 0xbf, 0x54, 0x70, 0xfd, 0x24, 0xa3, 0x83, 0x83, 0x87, 0x8a, 0x86, 0xf0, 0x94, 0x8a, 0x0e, 0x29, 0xe8, 0xc1, 0x07, 0x0a, 0x50, 0x6c, 0x33, 0x79, 0x10, 0x89, 0x12, 0xe5, 0xe6, 0xba, 0x9f, 0xd5, 0x90, 0xe0, 0xc1, 0x7b, 0xc6, 0x17, 0x32, 0xcc, 0xe3, 0xc1, 0x36, 0x2c, 0x30, 0x16, 0x3f, 0xd1, 0x82, 0xd9, 0xcb, 0x44, 0x01, 0xf9, 0x05, 0xdc, 0x18, 0x36, 0x2e, 0x58, 0x6c, 0x9b, 0xf1, 0x0b, 0xf4, 0x02, 0x69, 0x12, 0xa3, 0x44, 0xa3, 0xd4, 0x44, 0x14, 0x02, 0x54, 0xc6, 0x56, 0x36, 0x47, 0x27, 0x96, 0x36, 0x02, 0x05, 0x96, 0x16, 0xe6, 0xf6, 0x00, 0xe5, 0x6a, 0xd5, 0x5d, 0xf1, 0x4d, 0xf2, 0x77, 0xd9, 0xce, 0x18, 0xd2, 0xa7, 0x8b, 0x1a, 0xb6, 0x7b, 0x45, 0xac, 0xf9, 0xb2, 0xd5, 0x39, 0x1d, 0x76, 0xbc, 0xdf, 0x95, 0x7a, 0xd4, 0x3f, 0x5f, 0x3e, 0x14, 0xbc, 0x2f, 0x61, 0xaf, 0xa7, 0x3b, 0x7d, 0xbf, 0x0d, 0x25, 0x4b, 0x28, 0xdb, 0xc6, 0x6d, 0x87, 0xbf, 0x1f, 0x5d, 0xf9, 0x3c, 0xd3, 0xb5, 0x1c, 0x68, 0x2f, 0xf0, 0xa8, 0x8e, 0x2e, 0xbc, 0x4b, 0x5d, 0x1e, 0xfa, 0x04, 0x59, 0x77, 0xc4, 0x66, 0x9c, 0x0f, 0x8e, 0x78, 0xd5, 0xfb, 0xff, 0x94, 0x1b, 0x5c, 0x8d, 0x57, 0x30, 0x42, 0x73, 0x98, 0x71, 0x63, 0x40, 0x00, 0x91, 0xfd, 0x4b, 0xef, 0x1b, 0x45, 0xf3, 0x74, 0xbc, 0xb7, 0xda, 0x59, 0xc6, 0x69, 0xd1, 0x9b, 0x64, 0xd0, 0x30, 0x7f, 0x2d, 0xbd, 0xd7, 0x5d, 0x00, 0x4a, 0xf5, 0x71};
+const uint8_t rblk[256] = TEENSY_AUDIO_BLOCK;
 const uint8_t* MDAElecPiano::getRblk() { return rblk; }
-static constexpr char PROGMEM MDAElecPiano_name[] = {0x4d, 0x44, 0x41, 0x20, 0x56, 0x53, 0x54, 0x3a, 0x44, 0x3a, 0x4d, 0x44, 0x41, 0x20, 0x45, 0x6c, 0x65, 0x63, 0x74, 0x72, 0x69, 0x63, 0x20, 0x50, 0x69, 0x61, 0x6e, 0x6f, 0x0};
+static constexpr char PROGMEM MDAElecPiano_name[] = {0x4d, 0x44, 0x41, 0x20, 0x56, 0x53, 0x54, 0x3a, 0x4d, 0x44, 0x41, 0x20, 0x45, 0x6c, 0x65, 0x63, 0x74, 0x72, 0x69, 0x63, 0x20, 0x50, 0x69, 0x61, 0x6e, 0x6f, 0x0};
 const char* MDAElecPiano::getName() { return MDAElecPiano_name; }
 
 }

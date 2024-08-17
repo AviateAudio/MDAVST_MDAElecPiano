@@ -23,7 +23,7 @@
 #define MDAEPIANODATA_H_INCLUDED
 
 #ifndef USE_XFADE_DATA
-#include <Arduino.h>
+//#include <Arduino.h>
 
 constexpr int16_t epianoData[] PROGMEM = {
   -7, -23, -28, -16, -30, -17, -28, -16, -31, -15, -34, -12, -35, -6, -42, 4, -58, 44, -227, -1690,
