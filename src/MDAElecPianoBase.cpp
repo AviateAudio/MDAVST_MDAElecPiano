@@ -9,6 +9,10 @@
 #include "Aviate/LibBasicFunctions.h"
 #include "MDAElecPiano.h"
 
+#define audioBlockReceiveReadOnly receiveReadOnly
+#define audioBlockReceiveWritable receiveWritable
+#define audioBlockAllocate        allocate
+
 using namespace Aviate;
 
 namespace MDAVST_MDAElecPiano {

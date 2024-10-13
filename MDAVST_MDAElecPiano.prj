@@ -2,7 +2,7 @@
   "efxFileVersion": "1.6.0",
   "company": "MDA VST",
   "effectName": "MDA Electric Piano",
-  "effectVersion": "0.0.1",
+  "effectVersion": "1.0.0",
   "coreVersion": "1.6.0",
   "effectShortName": "EPIANO",
   "effectCategory": "Synth",
@@ -10,18 +10,19 @@
   "numInputs": 0,
   "numOutputs": 2,
   "numControls": 16,
-  "effectFilename": "MDAVST_MDAElecPiano.efx",
+  "effectFilename": "MDAVST_MDAElecPiano_v1.0.0.efx",
   "libraryName": "MDAVST_MDAElecPiano",
   "cppClass": "MDAVST_MDAElecPiano::MDAElecPiano",
   "cppInstBase": "_MDAVST_MDAElecPiano",
   "constructorParams": "",
   "isSingleton": false,
   "processMidi": true,
+  "isDataPak": false,
   "audioStreamType": 0,
-  "cpuUsage": "1",
-  "ram0Usage": "1",
-  "ram1Usage": "1",
-  "writableBuffers": 2,
+  "cpuUsage": "4",
+  "ram0Usage": "7",
+  "ram1Usage": "0",
+  "writableBuffers": 3,
   "controls": [
     {
       "name": "Bypass",
@@ -69,7 +70,7 @@
     {
       "name": "Mode",
       "shortName": "MODE",
-      "description": "Selects between the pre-made programs and manual synth control.",
+      "description": "Selects between the pre-made programs and manual synth control. Manual controls are visible with \"ALL\" view.",
       "config": [
         0,
         0.0,
@@ -91,7 +92,7 @@
     {
       "name": "Program",
       "shortName": "PROG",
-      "description": "Sets to one of 8 piano preset programs.",
+      "description": "Sets to one of 5 piano preset programs.",
       "config": [
         2,
         0.0,
@@ -119,13 +120,13 @@
     {
       "name": "Envelope Decay",
       "shortName": "DECAY",
-      "description": "The time for notes to decay after the initial strike.",
+      "description": "Controls the decay of the notes while the note is held.",
       "config": [
         3,
         0.0,
         1.0,
         0.0,
-        1.0
+        0.1000000014901161
       ],
       "userData": 0
     },
@@ -236,7 +237,7 @@
     {
       "name": "Tune",
       "shortName": "TUNE",
-      "description": "<description>",
+      "description": "Sets the overall tuning of the piano shifting the entire instrument pitch.",
       "config": [
         3,
         0.0,
@@ -249,7 +250,7 @@
     {
       "name": "Detune",
       "shortName": "DET",
-      "description": "<description>",
+      "description": "Sets the amount of each note is out of tune. A bit of detune gives a more natural sound.",
       "config": [
         3,
         0.0,
@@ -274,6 +275,7 @@
     }
   ],
   "projectFileVersion": "1.0.0",
+  "buildType": "1",
   "companyLogo": "gfx/MDA_Logo.png",
   "pedalIcon": "gfx/ePianoBlackIcon.png",
   "basePedal": "gfx/ePianoBlack.png",
@@ -286,14 +288,14 @@
     "src/mdaEPiano.cpp",
     "src/mdaEPiano.h",
     "src/mdaEPianoData.h",
-    "src/mdaEPianoDataXfade.h",
-    "src/utility"
+    "src/mdaEPianoDataXfade.h"
   ],
   "modules": null,
   "settings": {
     "showModules": false,
     "isSingleton": false,
     "processMidi": true,
+    "isDataPak": false,
     "cppDefines": "",
     "noWarnings": "",
     "enableFastMath": true,

@@ -12,6 +12,11 @@
 
 using namespace Aviate;
 
+// Some useful aliases
+#define audioBlockReceiveReadOnly receiveReadOnly
+#define audioBlockReceiveWritable receiveWritable
+#define audioBlockAllocate        allocate
+
 namespace MDAVST_MDAElecPiano {
 
 MDAElecPiano::MDAElecPiano()
