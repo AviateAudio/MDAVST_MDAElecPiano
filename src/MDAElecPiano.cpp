@@ -49,18 +49,18 @@ void MDAElecPiano::update(void)
     if (!rightOut) { release(leftOut); return; }
 
     // zero the leftOut, then use it to report the input peak as zero
-    memset(&leftOut->data[0], 0, sizeof(AudioDataType));
-    m_updateInputPeak(leftOut);
+    memset(&leftOut->data[0], 0, AUDIO_SAMPLES_PER_BLOCK * sizeof(AudioDataType));
 
     if (m_bypass) {
         // also zero the right, then transmit and release both
-        memset(&rightOut->data[0], 0, sizeof(AudioDataType));
+        memset(&rightOut->data[0], 0, AUDIO_SAMPLES_PER_BLOCK * sizeof(AudioDataType));
         transmit(leftOut, 0);
         transmit(rightOut, 1);
         release(leftOut);
         release(rightOut);
         return;
     }
+    m_updateInputPeak(leftOut);
 
     // otherwise do normal processing
     m_piano->process(leftOut->data, rightOut->data);
